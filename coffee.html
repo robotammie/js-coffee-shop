@@ -53,8 +53,14 @@
     var latte = document.getElementById('latte');
     var hotChocolate = document.getElementById('hot-chocolate');
 
-
     var drinksOrdered = []
+
+    var prices = {
+        "brew": 2.05,
+        "espresso": 3.25,
+        "latte": 4.15,
+        "hot chocolate": 2.50
+    };
 
     function makeCoffee(drinkType){
         myImage.setAttribute('src', 'static/coffee_machine.jpg');
@@ -67,6 +73,21 @@
 
         drinksOrdered.push(drinkType);
         console.log(drinksOrdered);
+
+        myRevenueMessage.innerText = '$'+revenue(drinksOrdered);
+    }
+
+    function revenue(drinksOrdered){
+        var total = 0;
+        var drink;
+
+        for (i = 0; i < drinksOrdered.length; i++){
+            drink = drinksOrdered[i];
+
+            total = total + prices[drink];
+        }
+        console.log(total);
+        return total;
     }
 
     // update my image
@@ -82,19 +103,14 @@
                                         return makeCoffee('latte');
                                       });
     hotChocolate.addEventListener('click', function (){ 
-                                        return makeCoffee('hotChocolate');
+                                        return makeCoffee('hot chocolate');
                                       });
     
     // use this JavaScript object in further study step
 
     
 
-    var prices = {
-        "brew": 2.05,
-        "espresso": 3.25,
-        "latte": 4.15,
-        "hot chocolate": 2.50
-    };
+
 
 
 </script>
