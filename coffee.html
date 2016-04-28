@@ -52,8 +52,13 @@
 
     // update my image
     myImage.setAttribute('src', 'static/coffee_beans.jpg');
+    myImage.addEventListener('click', makeCoffee);
 
     // use this JavaScript object in further study step
+
+    function makeCoffee(){
+        myImage.setAttribute('src', 'static/coffee_mug.jpg');
+    }
 
     var prices = {
         "brew": 2.05,
